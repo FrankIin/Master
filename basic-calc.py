@@ -10,37 +10,30 @@ def multiply(x,y):
 def divide(x,y):
     return x/y
 
-def user_input():
-    while True:
-        choice = input('Enter a number from 1 to 5 for operation: >> ')
-        if choice in ['1', '2', '3', '4', '5']:
-            print('You selected operation:', choice)
-            return choice
-        else:
-            print('Invalid input, please try again.')
-    # ask user input
-    # checks if it is a number
-    pass
+def user_input(action = 'select_operation'):
+    if action == 'select_operation':
+        while True:
+            choice = input('Enter a number from 1 to 5 for operation: >> \n1: Add\n2: Substract\n3: Multiply\n4: Divide\n5: Exit\n')
+            if choice in ['1', '2', '3', '4', '5']:
+                print('You selected operation:', choice)
+                return choice
+            else:
+                print('Invalid input, please try again.')
+    else:
+        while True:
+            try:
+                choice = int(input(f'Enter a {action} number for the operation: >>'))
+                return choice
+            except:
+                print('Invalid input, please try again.')
 
 def select_operation(number):
-    num1 = 1
-    num2 = 2
     operations = [add, substract, multiply, divide]
-    return operations[number-1](num1,num2)
+    if number == '5':
+        print('Exiting the calculator. Goodbye!')
+        return
+    else:
+        return operations[int(number)-1](user_input('first'),user_input('second'))  
     # checks if the number is between 1 and 5 to select a operation
 
-
-    pass
-
-'''
-Weclome to the calculator!
-Press for operation:
-1: Add
-2: Substract
-3: Multiply
-4: Divide
-5: Exit
-'''
-
-user_choice = user_input()
-print(user_choice)
+print(select_operation(user_input()))
