@@ -11,21 +11,20 @@ def divide(x,y):
     return x/y
 
 def user_input(action = 'select_operation'):
-    if action == 'select_operation':
         while True:
-            choice = input('Enter a number from 1 to 5 for operation: >> \n1: Add\n2: Substract\n3: Multiply\n4: Divide\n5: Exit\n')
-            if choice in ['1', '2', '3', '4', '5']:
-                print('You selected operation:', choice)
-                return choice
+            if action == 'select_operation':
+                choice = input('Enter a number from 1 to 5 for operation: >> \n1: Add\n2: Substract\n3: Multiply\n4: Divide\n5: Exit\n')
+                if choice in ['1', '2', '3', '4', '5']:
+                    print('You selected operation:', choice)
+                    return choice
+                else:
+                    print('Invalid input, please try again.')
             else:
-                print('Invalid input, please try again.')
-    else:
-        while True:
-            try:
-                choice = int(input(f'Enter a {action} number for the operation: >>'))
-                return choice
-            except:
-                print('Invalid input, please try again.')
+                try:
+                    value = float(input(f'Enter the {action} number: '))
+                    return value
+                except ValueError:
+                    print('Invalid input, please enter a valid number.')
 
 def select_operation(number):
     operations = [add, substract, multiply, divide]
