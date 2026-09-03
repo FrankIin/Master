@@ -22,7 +22,14 @@ def user_input():
     # checks if it is a number
     pass
 
-def select_operation():
+def select_operation(number):
+    num1 = 1
+    num2 = 2
+    operations = [add, substract, multiply, divide]
+    return operations[number-1](num1,num2)
+    # checks if the number is between 1 and 5 to select a operation
+
+
     pass
 
 '''
