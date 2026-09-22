@@ -1,0 +1,11 @@
+bin/
+
+lib/
+
+lib64/
+
+share/
+
+pyvenv.cfg
+
+lib64
